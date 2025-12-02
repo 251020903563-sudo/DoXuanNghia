@@ -1,0 +1,90 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "029f24c9-0037-4c59-90ed-3068829dd399",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "------------------------------\n",
+      "Giải phương trình: 4x^2 + 7x + 9 = 0\n",
+      "Phương trình có hai nghiệm phức:\n",
+      "x1 = (-0.875-1.2183492931011204j)\n",
+      "x2 = (-0.875+1.2183492931011204j)\n",
+      "------------------------------\n"
+     ]
+    }
+   ],
+   "source": [
+    "import math\n",
+    "import cmath\n",
+    "def giai_phuong_trinh_bac_2(a, b, c):\n",
+    "    \"\"\"\n",
+    "    Giải phương trình bậc hai ax^2 + bx + c = 0.\n",
+    "    \"\"\"\n",
+    "    if a == 0:\n",
+    "        if b == 0:\n",
+    "            return \"Phương trình vô nghiệm hoặc vô số nghiệm (không phải PT bậc 2).\"\n",
+    "        else:\n",
+    "            x = -c / b\n",
+    "            return f\"Đây là phương trình bậc nhất. Nghiệm duy nhất: x = {x}\"\n",
+    "    delta = b**2 - 4*a*c\n",
+    "    if delta > 0:\n",
+    "        x1 = (-b - math.sqrt(delta)) / (2*a)\n",
+    "        x2 = (-b + math.sqrt(delta)) / (2*a)\n",
+    "        return f\"Phương trình có hai nghiệm thực phân biệt:\\nx1 = {x1}\\nx2 = {x2}\"\n",
+    "    elif delta == 0:\n",
+    "        x = -b / (2*a)\n",
+    "        return f\"Phương trình có nghiệm kép: x1 = x2 = {x}\"\n",
+    "    else:\n",
+    "        x1 = (-b - cmath.sqrt(delta)) / (2*a)\n",
+    "        x2 = (-b + cmath.sqrt(delta)) / (2*a)\n",
+    "        return f\"Phương trình có hai nghiệm phức:\\nx1 = {x1}\\nx2 = {x2}\"\n",
+    "try:\n",
+    "    a_val = 4\n",
+    "    b_val = 7\n",
+    "    c_val = 9\n",
+    "    ket_qua = giai_phuong_trinh_bac_2(a_val, b_val, c_val)\n",
+    "    print(\"-\" * 30)\n",
+    "    print(f\"Giải phương trình: {a_val}x^2 + {b_val}x + {c_val} = 0\")\n",
+    "    print(ket_qua)\n",
+    "    print(\"-\" * 30)\n",
+    "except ValueError:\n",
+    "    print(\"Vui lòng nhập các giá trị số hợp lệ cho a, b, và c.\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "id": "c9ae655d-5362-4d0b-8409-ce55f5501454",
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.11.7"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
